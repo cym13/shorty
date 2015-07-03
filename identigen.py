@@ -3,10 +3,8 @@ import hashlib
 
 # Consonants and Vowel sounds
 SYLLABUS = ([ x for x in string.ascii_lowercase if x not in 'aeiouy' ],
-            [ 'a',  'e',  'i',  'o',  'u', 'y',
-              'ai', 'au', 'eu', 'ay', 'ao', 'ay',
-              'ey', 'ei', 'eo', 'ou', 'ia', 'io',
-              'ua', 'ui' ])
+            [ 'a',  'e',  'i',  'o',  'u',  'y',
+              'ao', 'ay', 'eo', 'ia', 'ou', 'ua', 'yo' ])
 
 
 def translate(hsh, syllabus=SYLLABUS):
@@ -22,8 +20,8 @@ def translate(hsh, syllabus=SYLLABUS):
         val = int(hsh[0:2], 16)
         hsh = hsh[2:]
 
-        result += syllabus[0][val // 20]
-        result += syllabus[1][val %  20]
+        result += syllabus[0][val %  20]
+        result += syllabus[1][val // 20]
 
     return result
 
